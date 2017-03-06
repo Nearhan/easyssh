@@ -124,7 +124,6 @@ func (ssh_conf *MakeConfig) Stream(command string, timeout int) (stdout chan str
 
 	go func(stdoutScanner, stderrScanner *bufio.Scanner, stdoutChan, stderrChan chan string, done chan bool) {
 		defer close(stdoutChan)
-		defer close(stderrChan)
 		defer close(done)
 
 		timeoutChan := time.After(time.Duration(timeout) * time.Second)
